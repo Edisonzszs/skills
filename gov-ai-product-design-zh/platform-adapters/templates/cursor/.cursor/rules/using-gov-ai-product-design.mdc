@@ -1,0 +1,10 @@
+---
+description: Route Chinese government and enterprise AI planning work through discovery first, then PRD when ready
+alwaysApply: false
+---
+
+- For Chinese government and enterprise AI planning tasks, first determine whether the scenario is still in discovery or ready for document drafting.
+- If the business problem, AI fit, agent fit, pilot scope, deployment boundary, or compliance boundary is unclear, stay in discovery.
+- Only write Product Brief, PRD, and AI/Agent Spec when discovery outputs are already strong enough.
+- Keep business acceptance separate from AI acceptance.
+- Keep read-only versus write-action boundaries explicit.
