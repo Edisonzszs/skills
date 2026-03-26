@@ -1,0 +1,4 @@
+interface:
+  display_name: "OpenClaw Docker Deploy"
+  short_description: "Deploy OpenClaw on a Linux cloud server with Docker/Compose."
+  default_prompt: "Use this skill to deploy, repair, or validate OpenClaw Docker on a Linux cloud server."
