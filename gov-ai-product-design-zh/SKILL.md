@@ -89,12 +89,7 @@ Use [references/handoff-standard-zh.md](references/handoff-standard-zh.md) to ju
 
 ## Child Skill Contract
 
-Treat these as child skills under this main workflow:
-
-- `$gov-ai-discovery-zh`: phase 1, discovery and gating
-- `$gov-ai-agent-prd-zh`: phase 2, document drafting after discovery
-
-When using this parent skill, prefer not to expose both child skills unless the user explicitly wants the phase split.
+Treat these as child skills under this main workflow:`r`n`r`n- `gov-ai-product-design-zh/subskills/gov-ai-discovery-zh`: phase 1, discovery and gating`r`n- `gov-ai-product-design-zh/subskills/gov-ai-agent-prd-zh`: phase 2, document drafting after discovery`r`n`r`nWhen using this parent skill, prefer not to expose both child skills unless the user explicitly wants the phase split. Load the child instructions from those subdirectories when needed.
 
 ## Example Triggers
 
