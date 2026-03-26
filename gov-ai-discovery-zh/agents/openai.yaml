@@ -1,4 +1,0 @@
-interface:
-  display_name: "Gov AI Discovery"
-  short_description: "Assess fit and scope for Chinese government and enterprise AI projects."
-  default_prompt: "Use $gov-ai-discovery-zh to assess whether this Chinese government or enterprise scenario needs AI or an agent."
