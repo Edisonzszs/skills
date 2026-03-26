@@ -1,6 +1,6 @@
 ---
 name: gov-ai-discovery-zh
-description: Assess and scope Chinese government and enterprise AI projects before PRD writing. Use when a user needs scenario discovery, agent necessity judgment, solution pattern selection, pilot scope definition, deployment or compliance gating, risk discovery, or a structured handoff for later Product Brief and PRD generation.
+description: Run the discovery and gating phase for Chinese government and enterprise AI projects. Use when the user explicitly wants feasibility assessment, scenario discovery, agent necessity judgment, solution pattern selection, pilot scoping, deployment gating, compliance gating, or a discovery pack before PRD drafting.
 ---
 
 # Gov AI Discovery ZH

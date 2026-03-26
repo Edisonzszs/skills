@@ -1,6 +1,6 @@
 ---
 name: gov-ai-agent-prd-zh
-description: Generate and refine Chinese Product Briefs, PRDs, and AI or agent specifications for government and enterprise projects after discovery is complete. Use when a user already has scenario discovery, fit assessment, pilot scope, and deployment boundaries, and now needs structured planning documents for review, delivery, or implementation.
+description: Draft Product Briefs, PRDs, and AI or agent specifications for Chinese government and enterprise AI projects after discovery is already complete. Use when the user explicitly wants the document-writing phase and already has discovery outputs, fit assessment, pilot scope, deployment boundaries, and governance constraints.
 ---
 
 # Gov AI Agent PRD ZH

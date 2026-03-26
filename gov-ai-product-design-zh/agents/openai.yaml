@@ -1,0 +1,4 @@
+interface:
+  display_name: "Gov AI Product Design"
+  short_description: "Route Chinese government and enterprise AI work from discovery to PRD."
+  default_prompt: "Use $gov-ai-product-design-zh to handle discovery and PRD design for a Chinese government or enterprise AI project."
