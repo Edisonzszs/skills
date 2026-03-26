@@ -1,0 +1,3 @@
+﻿display_name: Gov AI Product Design ZH
+short_description: Single-skill workflow for Chinese government and enterprise AI discovery, PRD drafting, and agent specification.
+default_prompt: Help me assess this Chinese government or enterprise AI scenario, decide whether AI or an agent is justified, and draft the Product Brief, PRD, and AI/Agent Spec if the gates are passed.

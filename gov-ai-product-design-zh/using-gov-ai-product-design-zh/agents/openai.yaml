@@ -1,4 +1,0 @@
-interface:
-  display_name: "Using Gov AI Product Design"
-  short_description: "Route work across the government AI product design skill set."
-  default_prompt: "Use $using-gov-ai-product-design-zh to choose the right planning skill for this government or enterprise AI project."
