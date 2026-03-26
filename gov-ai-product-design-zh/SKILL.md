@@ -1,40 +1,47 @@
 ---
 name: gov-ai-product-design-zh
-description: Orchestrate Chinese government and enterprise AI product design from discovery through Product Brief, PRD, and AI or agent specification. Use when a user asks for end-to-end requirements analysis, scenario assessment, whether AI or an agent is needed, pilot scoping, or formal PRD generation for a government or enterprise AI project.
+description: Handle Chinese government and enterprise AI product design end to end in a single skill. Use when a user needs requirements analysis, scenario discovery, AI or agent fit assessment, pilot scoping, Product Brief drafting, PRD drafting, AI or agent specification drafting, deployment boundary definition, or compliance-aware planning for a government or enterprise AI project.
 ---
 
 # Gov AI Product Design ZH
 
 ## Overview
 
-Use this skill as the main entry point for Chinese government and enterprise AI product planning. It should automatically choose the right phase:
+Use this skill as the single official entry point for Chinese government and enterprise AI product planning. Handle the full flow inside one skill: discovery first when the scenario is still unclear, then formal document drafting when the discovery output is strong enough.
 
-- discovery first when the scenario is still early, vague, or unvalidated
-- PRD drafting next when discovery is already complete enough
+State that you are using `$gov-ai-product-design-zh` and explicitly say which phase you are running.
 
-State that you are using `$gov-ai-product-design-zh` and explicitly say which path you are taking.
+## Work In Two Phases
 
-## Route Automatically
+Use this fixed sequence.
 
-Use this routing logic before doing anything else.
+### Phase 1: Discovery And Gating
 
-### Choose Discovery Path
+Run discovery first when any of the following is still unclear:
 
-Route to the discovery workflow when any of these is true:
+- the real business problem
+- whether AI is needed
+- whether an agent is needed
+- pilot scope
+- deployment boundary
+- compliance boundary
+- read-only versus write-action boundary
+- human approval points
 
-- the business scenario is still vague
-- the user has not yet proven AI is needed
-- the user has not yet proven an agent is needed
-- pilot scope is unclear
-- deployment or compliance boundaries are unclear
-- read-only versus write-action boundaries are unclear
-- the user asks for feasibility, assessment, scoping, or solution choice
+In this phase, classify the scenario, test whether AI is justified, test whether an agent is justified, define deployment and compliance boundaries, and produce a clean discovery pack.
 
-In this path, follow the process and references from `$gov-ai-discovery-zh`.
+Use these references:
 
-### Choose PRD Path
+- [references/discovery-workflow-zh.md](references/discovery-workflow-zh.md)
+- [references/decision-gates-zh.md](references/decision-gates-zh.md)
+- [references/agent-necessity-matrix-zh.md](references/agent-necessity-matrix-zh.md)
+- [references/red-flags-zh.md](references/red-flags-zh.md)
+- [references/discovery-output-template-zh.md](references/discovery-output-template-zh.md)
+- [references/pilot-gates-zh.md](references/pilot-gates-zh.md)
 
-Route to the PRD workflow only when most of these are already clear:
+### Phase 2: Product Brief, PRD, And AI Or Agent Spec
+
+Only move into document drafting when most of the following are already clear:
 
 - scenario class
 - AI necessity
@@ -45,57 +52,71 @@ Route to the PRD workflow only when most of these are already clear:
 - human approval points
 - major risks and pending issues
 
-In this path, follow the process and references from `$gov-ai-agent-prd-zh`.
+In this phase, draft:
 
-### Default Rule
+1. `Product Brief`
+2. `PRD`
+3. `AI/Agent Spec`
 
-If uncertain, choose the discovery path first.
+Use these references:
 
-## Standard End-To-End Flow
+- [references/prd-workflow-zh.md](references/prd-workflow-zh.md)
+- [references/discovery-handoff-zh.md](references/discovery-handoff-zh.md)
+- [references/prd-template-zh.md](references/prd-template-zh.md)
+- [references/agent-prd-template-zh.md](references/agent-prd-template-zh.md)
+- [references/ai-evaluation-metrics-zh.md](references/ai-evaluation-metrics-zh.md)
+- [references/deployment-and-compliance-zh.md](references/deployment-and-compliance-zh.md)
+- [references/gov-enterprise-intake-zh.md](references/gov-enterprise-intake-zh.md)
+- [references/scenario-patterns-zh.md](references/scenario-patterns-zh.md)
 
-When handling a full request, work in this order:
+## Automatic Routing Rule
 
-1. run discovery
-2. produce a discovery pack
-3. check whether the pack is sufficient
-4. if sufficient, draft Product Brief, PRD, and AI or Agent Spec
-5. call out what remains unresolved
+If the input is early, vague, or still debating solution form, stay in discovery.
 
-Do not skip discovery just because the user asks for a PRD. If the input is too weak, explain why and stop at the discovery pack.
+If the input already contains a solid discovery pack or equivalent detail, move to Product Brief and PRD drafting.
 
-## Expected Outputs
+If uncertain, choose discovery first.
 
-Depending on the route, produce one of these output sets:
+Use [references/routing-rules-zh.md](references/routing-rules-zh.md) and [references/handoff-standard-zh.md](references/handoff-standard-zh.md).
 
-### Discovery Route Output
+## Standard Output Sets
+
+### Discovery Output Set
 
 - scenario summary
 - current workflow summary
+- problem statement
 - AI necessity judgment
 - agent necessity judgment
 - deployment and compliance boundary summary
 - pilot scope
 - rollout gates
-- pending issues and risks
+- pending questions and risks
 
-### PRD Route Output
+### Planning Output Set
 
 - Product Brief
 - PRD
 - AI or Agent Spec
 
-Use [references/routing-rules-zh.md](references/routing-rules-zh.md) to decide the route.
-Use [references/handoff-standard-zh.md](references/handoff-standard-zh.md) to judge whether discovery is complete enough for PRD drafting.
+If the discovery phase is incomplete, do not fake a full PRD. Stop and say what is missing.
 
-## Child Skill Contract
+## Output Rules
 
-Treat these as child skills under this main workflow:`r`n`r`n- `gov-ai-product-design-zh/subskills/gov-ai-discovery-zh`: phase 1, discovery and gating`r`n- `gov-ai-product-design-zh/subskills/gov-ai-agent-prd-zh`: phase 2, document drafting after discovery`r`n`r`nWhen using this parent skill, prefer not to expose both child skills unless the user explicitly wants the phase split. Load the child instructions from those subdirectories when needed.
+When generating the deliverables:
+
+- use Chinese in the final documents
+- separate confirmed facts from assumptions
+- separate business acceptance from AI acceptance
+- do not bury compliance and governance requirements inside generic NFR wording
+- call out read-only versus write-action boundaries explicitly
+- keep a dedicated pending-items section for unresolved issues
 
 ## Example Triggers
 
 This skill should trigger on requests like:
 
 - help me analyze and design a government AI product
-- decide whether this enterprise scenario needs an agent and then write the PRD
+- decide whether this enterprise scenario needs AI or an agent, then write the PRD
 - do end-to-end requirements analysis for a Chinese government or enterprise AI project
 - produce the discovery and PRD package for this state-owned enterprise AI scenario

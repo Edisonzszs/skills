@@ -1,4 +1,0 @@
-interface:
-  display_name: "Gov AI Agent PRD"
-  short_description: "Draft Chinese PRDs and agent specs after government AI discovery is done."
-  default_prompt: "Use $gov-ai-agent-prd-zh to turn this government or enterprise AI discovery pack into a Chinese Product Brief, PRD, and Agent Spec."
