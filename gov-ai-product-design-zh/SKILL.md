@@ -1,191 +1,197 @@
 ﻿---
 name: gov-ai-product-design-zh
-description: End-to-end product discovery and PRD design for Chinese government and enterprise AI projects. Use when the user wants one integrated workflow that can assess whether AI or an agent is justified, define pilot and governance boundaries, and then draft a Product Brief, PRD, and AI or agent specification.
+description: End-to-end solution design, discovery, and PRD drafting for Chinese government and enterprise AI agent projects. Use when the user wants one integrated workflow that routes the request, completes discovery if needed, designs a practical solution shape, and then drafts a Product Brief, PRD, AI or agent specification, acceptance metrics, and pending items.
 ---
 
 # Gov AI Product Design ZH
 
 ## Overview
 
-Use this as the single entry skill for Chinese government and enterprise AI product planning.
+Use this as the single entry skill for Chinese government and enterprise AI product and solution design.
 
-This skill replaces the split workflow of separate routing, discovery, and PRD skills. It should behave as one integrated planning workflow:
+This is not only a PRD-writing skill. It is a vertical planning workflow for:
 
-1. decide whether the request is still in discovery or ready for document drafting
-2. if discovery is incomplete, complete discovery first
-3. when the gates are passed, draft the Product Brief
-4. then draft the PRD
-5. then draft the AI or Agent Spec
+- whether the scenario should be solved with AI at all
+- whether it should be solved with an agent at all
+- what the solution shape should be
+- how the pilot should be bounded
+- how the product documents should be written
+
+Always work in this order:
+
+1. route the request
+2. if information is insufficient, stay in Discovery
+3. if Discovery is sufficient, write the Product Brief
+4. then write the PRD
+5. then write the AI or Agent Spec
+6. finally summarize acceptance metrics and pending items
 
 State that you are using `$gov-ai-product-design-zh`.
 
-## Phase 1: Route Before Drafting
+## Phase 1: Route First
 
-Do not jump straight into PRD writing unless the core inputs are already clear.
+Do not jump directly into PRD drafting.
 
-Start by checking whether the user already knows:
+First decide whether the request is:
 
-- the scenario class
+- still in discovery
+- ready for structured solution framing
+- ready for formal document drafting
+
+If any of these are still unclear, stay in Discovery:
+
+- scenario class
+- business objective
 - whether AI is actually needed
 - whether an agent is actually needed
-- the pilot scope
-- the deployment boundary
-- the data and compliance boundary
-- the read-only versus write-action boundary
-- the mandatory human approval points
-- the major risks and pending questions
-
-If these are still weak, stay in discovery first.
+- pilot scope
+- deployment boundary
+- compliance boundary
+- read-only versus write-action boundary
+- human approval points
+- major risks and pending questions
 
 Use:
 - [references/routing-rules-zh.md](references/routing-rules-zh.md)
-- [references/skill-map-zh.md](references/skill-map-zh.md)
-- [references/handoff-standard-zh.md](references/handoff-standard-zh.md)
+- [references/scenario-patterns-zh.md](references/scenario-patterns-zh.md)
 
-## Phase 2: Discovery And Gating
+## Phase 2: Discovery
 
-Use this fixed gate order:
+Discovery is mandatory when the request is still vague or early.
 
-1. confirm the project is large enough to justify structured planning
+Run Discovery in a fixed order:
+
+1. confirm the project is large enough for structured planning
 2. classify the business scenario
 3. determine whether AI is needed at all
 4. determine whether an agent is needed at all
 5. define data, deployment, and compliance boundaries
 6. define pilot scope and rollout gates
-7. produce a discovery pack
+7. produce a clean discovery pack
 
 If a gate fails, say so clearly and recommend the simpler alternative.
 
-Before recommending an agent, check:
+Before recommending an agent, verify:
 
-- whether the task needs multi-step reasoning or orchestration
-- whether the task needs tool use
-- whether the task needs autonomous branching decisions
+- whether multi-step orchestration is needed
+- whether tool use is needed
+- whether branching decisions are needed
 - whether the error cost is acceptable
-- whether risky actions can be held behind human approval
+- whether risky actions can be gated by human approval
 - whether the data and network boundaries are known
 - whether logs and audit trails can be retained
-- whether the pilot is small enough to govern safely
+- whether the pilot can be governed safely
 
 Use:
+- [references/discovery-workflow-zh.md](references/discovery-workflow-zh.md)
 - [references/decision-gates-zh.md](references/decision-gates-zh.md)
-- [references/agent-necessity-matrix-zh.md](references/agent-necessity-matrix-zh.md)
 - [references/red-flags-zh.md](references/red-flags-zh.md)
 - [references/discovery-output-template-zh.md](references/discovery-output-template-zh.md)
-- [references/pilot-gates-zh.md](references/pilot-gates-zh.md)
-- [references/gov-enterprise-intake-zh.md](references/gov-enterprise-intake-zh.md)
-- [references/scenario-patterns-zh.md](references/scenario-patterns-zh.md)
 
-## Discovery Output
+## Solution Framing Rule
 
-Default discovery output should include:
+Before writing the Product Brief, convert Discovery outputs into a solution framing view.
 
-1. scenario summary
-2. current workflow summary
-3. problem statement
-4. solution pattern recommendation
-5. AI necessity judgment
-6. agent necessity judgment
-7. deployment and compliance boundary summary
-8. pilot scope
-9. rollout gates
-10. pending questions and risks
+At minimum, identify:
 
-Do not move to PRD drafting until the discovery handoff is strong enough.
+- which business role receives value
+- which core problem is being improved first
+- which capability should be delivered in the pilot
+- which parts are AI, which parts are workflow, and which parts are ordinary system integration
+- where the agent boundary starts and stops
+- where human approval is mandatory
+
+Do not let the documents become a feature list without a solution shape.
 
 Use:
-- [references/discovery-handoff-zh.md](references/discovery-handoff-zh.md)
-- [references/handoff-standard-zh.md](references/handoff-standard-zh.md)
+- [references/solution-design-workflow-zh.md](references/solution-design-workflow-zh.md)
+- [references/solution-blueprint-template-zh.md](references/solution-blueprint-template-zh.md)
+- [references/capability-matrix-zh.md](references/capability-matrix-zh.md)
 
-## Phase 3: Draft Product Brief, PRD, And AI Or Agent Spec
+## Phase 3: Product Brief
 
-Once discovery is complete, draft in three layers:
+If Discovery is sufficient, write the Product Brief first.
 
-1. `Product Brief`
-2. `PRD`
-3. `AI/Agent Spec`
+The Product Brief should clarify:
 
-Keep them distinct:
-
-- Product Brief: business value, sponsor, pilot, scope, and success criteria
-- PRD: user roles, workflows, functional requirements, non-functional requirements, business rules, and acceptance criteria
-- AI or Agent Spec: models, knowledge boundaries, tools, permissions, human approval, audit, and fallback logic
-
-Write in this order:
-
-### Pass 1: Normalize Discovery Inputs
-
-Convert discovery outputs into stable terms:
-
-- business objective
-- target users and departments
-- scenario classification
+- business background
+- core problem
+- target departments and users
+- business goals
 - pilot scope
-- deployment boundary
-- risk summary
+- non-pilot scope
+- success criteria
+- risks and assumptions
 
-### Pass 2: Write Product Brief
+Make the Product Brief reflect the chosen solution shape, not only the business request.
 
-Write a concise brief suitable for steering or sponsor review.
+Use:
+- [references/handoff-standard-zh.md](references/handoff-standard-zh.md)
+- [references/product-brief-template-zh.md](references/product-brief-template-zh.md)
 
-### Pass 3: Write PRD
+## Phase 4: PRD
 
-Write:
+After the Product Brief, write the PRD.
 
-- numbered `FR-*` requirements
-- numbered `NFR-*` requirements
-- workflow states
-- role and permission model
-- explicit in-scope and out-of-scope sections
+The PRD should include:
+
+- user roles
+- workflows
+- scope
+- numbered `FR-*`
+- numbered `NFR-*`
+- business rules
+- permissions
 - business acceptance criteria
 
-### Pass 4: Write AI Or Agent Spec
+The PRD should be grounded in the solution framing, not written as disconnected pages and features.
 
-Write:
+Use:
+- [references/prd-workflow-zh.md](references/prd-workflow-zh.md)
+- [references/prd-template-zh.md](references/prd-template-zh.md)
 
-- AI necessity summary
-- agent necessity summary
+## Phase 5: AI Or Agent Spec
+
+After the PRD, write the AI or Agent Spec.
+
+The AI or Agent Spec should cover:
+
+- why AI is needed or not needed
+- why an agent is needed or not needed
 - model and deployment constraints
 - knowledge boundaries
-- tool list and tool boundaries
+- tool boundaries
 - read-only actions
 - write actions
-- mandatory human approval points
+- human approval points
 - high-risk failure modes
-- fallback and escalation paths
+- fallback and escalation
 - AI evaluation metrics
 
 Use:
-- [references/agent-prd-template-zh.md](references/agent-prd-template-zh.md)
+- [references/agent-spec-template-zh.md](references/agent-spec-template-zh.md)
 - [references/ai-evaluation-metrics-zh.md](references/ai-evaluation-metrics-zh.md)
 - [references/deployment-and-compliance-zh.md](references/deployment-and-compliance-zh.md)
+- [references/rollout-and-operating-model-zh.md](references/rollout-and-operating-model-zh.md)
 
-## Non-Negotiable Requirements
+## Final Output Rule
 
-Do not omit these sections for government and enterprise AI projects:
+Every complete run should end with:
 
-- pilot scope and non-pilot scope
-- deployment boundary
-- compliance and audit requirements
-- read-only versus write-action boundary
-- human approval points
-- business acceptance metrics
-- AI acceptance metrics
-- pending issues and risks
+1. Product Brief
+2. PRD
+3. AI or Agent Spec
+4. business acceptance metrics
+5. AI acceptance metrics
+6. pending items and risks
 
-## Output Rules
-
-When generating the final documents:
-
-- use Chinese for the deliverables
-- keep assumptions separate from confirmed facts
-- keep business acceptance separate from AI acceptance
-- do not hide governance or compliance items inside generic NFR prose
-- if discovery is incomplete, stop and say what is missing
+Keep assumptions separate from confirmed facts.
+Keep business acceptance separate from AI acceptance.
+Do not hide governance or compliance items inside generic NFR prose.
 
 ## Platform Adapters
 
-If the user asks how to use this skill collection in Claude Code, Codex, Cursor, or OpenCode, load:
+If the user asks how to use this skill in Claude Code, Codex, Cursor, or OpenCode, load:
 
 - [platform-adapters/overview-zh.md](platform-adapters/overview-zh.md)
 - [platform-adapters/claude-code-zh.md](platform-adapters/claude-code-zh.md)
@@ -198,7 +204,7 @@ If the user asks how to use this skill collection in Claude Code, Codex, Cursor,
 
 This skill should trigger on requests like:
 
-- help me do end-to-end government AI product design work
+- help me design a government or enterprise AI agent solution
 - assess whether this government or enterprise workflow really needs AI or an agent
 - do discovery before writing the PRD
 - turn this government AI scenario into a Product Brief and PRD
