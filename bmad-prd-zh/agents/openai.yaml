@@ -1,4 +1,0 @@
-﻿interface:
-  display_name: "BMAD 中文PRD"
-  short_description: "按 BMAD 流程为中文团队整理、访谈并生成产品 PRD 文档。"
-  default_prompt: "Use $bmad-prd-zh to generate a Chinese BMAD-style PRD for my product idea."
